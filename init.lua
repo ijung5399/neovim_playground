@@ -26,8 +26,8 @@ vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })  -- Nav
 vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to below window" })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to above window" })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
-vim.keymap.set("n", "J", "gj", { noremap = true, silent = true})
-vim.keymap.set("n", "K", "gk", { noremap = true, silent = true})
+--vim.keymap.set("n", "J", "gj", { noremap = true, silent = true})
+--vim.keymap.set("n", "K", "gk", { noremap = true, silent = true})
 -- init.lua
 
 -- Ensure Lazy.nvim is installed
