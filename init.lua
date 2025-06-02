@@ -22,12 +22,13 @@ vim.g.maplocalleader = " "     -- Set local leader to spacebar
 -- Basic keybindings
 vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "Save file" })  -- Save with <leader>w
 vim.keymap.set("n", "<leader>q", ":q<CR>", { desc = "Quit" })       -- Quit with <leader>q
-vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })  -- Navigate windows
-vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to below window" })
-vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to above window" })
-vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
---vim.keymap.set("n", "J", "gj", { noremap = true, silent = true})
---vim.keymap.set("n", "K", "gk", { noremap = true, silent = true})
+-- vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })  -- Navigate windows
+-- vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to below window" })
+-- vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to above window" })
+-- vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
+-- vim.keymap.set("n", "J", "gj", { noremap = true, silent = true})
+-- vim.keymap.set("n", "K", "gk", { noremap = true, silent = true})
+
 -- init.lua
 
 -- Ensure Lazy.nvim is installed
@@ -69,6 +70,11 @@ require('lazy').setup({
   {
     "nvim-telescope/telescope-file-browser.nvim",
     dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+  },
+
+  -- Oil
+  {
+    "stevearc/oil.nvim"
   },
 
   -- lualine
@@ -235,3 +241,5 @@ vim.api.nvim_create_user_command('SaveDated', save_file_with_dated_name, {
     desc = 'Save the current buffer with a given name and date suffix (e.g., :SaveDatedNew MyDoc -> MyDoc_YYYYMMdd.md)',
 })
 
+-- Oil
+require("oil").setup()
