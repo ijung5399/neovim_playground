@@ -40,3 +40,16 @@ cargo install viu
 - C++ Build Tools
 - Windows SDK
 */
+
+## [PowerShell]
+Instead of windows powershell, better to install "PowerShell"
+
+winget install --id Microsoft.PowerShell -e --source winget
+
+// NOTE that PowerShell and WindowsPowerShell have different $profile location
+// and it may break your previous installation like posh:
+// This is because installation paths are different. So, install the necessary ones
+
+## [Terminal Icons]
+Install-Module Terminal-Icons -Scope CurrentUser -Force
+Import-Module Terminal-Icons
