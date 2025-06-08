@@ -26,8 +26,6 @@ vim.keymap.set("n", "<leader>q", ":q<CR>", { desc = "Quit" })       -- Quit with
 -- vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to below window" })
 -- vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to above window" })
 -- vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
--- vim.keymap.set("n", "J", "gj", { noremap = true, silent = true})
--- vim.keymap.set("n", "K", "gk", { noremap = true, silent = true})
 
 -- init.lua
 
@@ -48,13 +46,10 @@ vim.opt.rtp:prepend(lazypath)
 -- Setup Lazy.nvim and define plugins
 require('lazy').setup({
   -- Treesitter
-   {"nvim-treesitter/nvim-treesitter", branch = 'master', lazy = false, build = ":TSUpdate"},
+  {"nvim-treesitter/nvim-treesitter", branch = 'master', lazy = false, build = ":TSUpdate"},
+
   -- Gruvbox color scheme
   { 'morhetz/gruvbox' },
-
-  -- Goyo plugin
-  { 'junegunn/goyo.vim' },
-  'junegunn/limelight.vim',
 
   -- Catppuccin color scheme
   { 'catppuccin/nvim', as = 'catppuccin' },
@@ -183,13 +178,6 @@ require('lazy').setup({
 -- Set Catppuccin color scheme
 vim.cmd('colorscheme catppuccin')
 
--- Optional: Configure Goyo
-vim.cmd('autocmd! User GoyoEnter Limelight')
-vim.cmd('autocmd! User GoyoLeave Limelight!')
-
--- Arrows
-vim.api.nvim_set_keymap('i', '<C-.>', ' -----> ', { noremap = true, silent = true })
-
 -- Telescope Key bindings
 vim.api.nvim_set_keymap('n', '<leader>ff', '<cmd>Telescope find_files<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', { noremap = true, silent = true })
@@ -284,8 +272,6 @@ local function wq_dated_command(args)
     end
 end
 
-
-
 -- Define the custom command for WQDated
 vim.api.nvim_create_user_command('WQDated', wq_dated_command, {
     nargs = 1, -- The command takes exactly one argument (the base filename)
@@ -304,3 +290,4 @@ vim.api.nvim_create_user_command('SaveDated', save_file_with_dated_name, {
 
 -- Oil
 require("oil").setup()
+

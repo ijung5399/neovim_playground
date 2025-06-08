@@ -17,5 +17,9 @@ Install-Module -Name Terminal-Icons -Repository PSGallery -Scope CurrentUser
 
 
 # nerd-fonts (Terminal Icon Working NF)
-https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/CascadiaMono.zip
+
+>[!NOTE] fonts that support automatic ligatures (like "Fira Code" or "Cascadia Code")
+
+https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/CascadiaCode.zip
+(https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/CascadiaMono.zip)
 
