@@ -53,3 +53,9 @@ winget install --id Microsoft.PowerShell -e --source winget
 ## [Terminal Icons]
 Install-Module Terminal-Icons -Scope CurrentUser -Force
 Import-Module Terminal-Icons
+
+## [Misc]
+To make `memo` folder
+```
+mklink /J C:\Users\ilmojung "C:\Users\ilmojung\OneDrive - Microsoft\Desktop\Memo Collections"
+```
