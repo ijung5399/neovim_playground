@@ -12,12 +12,14 @@ mv neovim_playground nvim
 cd nvim
 
 ## [nerd font]
-Step 1: download https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/CascadiaCode.zip
+### Step 1: download https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/CascadiaCode.zip
 - NOTE: This `CaskaydiaCove Nerd Font` provides `programming ligatures`.
-Step 2: Install the Font
+
+### Step 2: Install the Font
 - Find the font file (.ttf or .otf).
 - Double-click the file and click Install.
-Step 3: Set the Font in Windows Terminal
+
+### Step 3: Set the Font in Windows Terminal
 - Open Windows Terminal.
 - Click the dropdown arrow (top-right) and select Settings.
 - Choose Default from the left panel.
