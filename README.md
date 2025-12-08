@@ -12,7 +12,8 @@ mv neovim_playground nvim
 cd nvim
 
 ## [nerd font]
-Step 1: download https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/CascadiaMono.zip
+Step 1: download https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/CascadiaCode.zip
+- NOTE: This `CaskaydiaCove Nerd Font` provides `programming ligatures`.
 Step 2: Install the Font
 - Find the font file (.ttf or .otf).
 - Double-click the file and click Install.
@@ -57,5 +58,5 @@ Import-Module Terminal-Icons
 ## [Misc]
 To make `memo` folder
 ```
-mklink /J C:\Users\ilmojung "C:\Users\ilmojung\OneDrive - Microsoft\Desktop\Memo Collections"
+mklink /J C:\Users\ilmojung\memo "C:\Users\ilmojung\OneDrive - Microsoft\Desktop\Memo Collections"
 ```
