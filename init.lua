@@ -1,5 +1,8 @@
 -- ~/.config/nvim/init.lua
 --
+--
+
+
 -- Basic settings
 vim.opt.number = true          -- Show line numbers
 --vim.opt.relativenumber = true  -- Relative line numbers
@@ -18,7 +21,10 @@ vim.o.clipboard = 'unnamedplus'
 -- Leader key (set before plugins)
 vim.g.mapleader = " "          -- Set leader to spacebar
 vim.g.maplocalleader = " "     -- Set local leader to spacebar
-
+ 
+-- Arrow
+require('arrow')
+          
 -- Basic keybindings
 vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "Save file" })  -- Save with <leader>w
 vim.keymap.set("n", "<leader>q", ":q<CR>", { desc = "Quit" })       -- Quit with <leader>q
@@ -47,7 +53,21 @@ vim.opt.rtp:prepend(lazypath)
 -- Setup Lazy.nvim and define plugins
 require('lazy').setup({
   -- Treesitter
-   {"nvim-treesitter/nvim-treesitter", branch = 'master', lazy = false, build = ":TSUpdate"},
+  -- Inside require('lazy').setup({...})
+  -- Treesitter
+   {
+      "nvim-treesitter/nvim-treesitter", 
+      branch = 'master', 
+      lazy = false, 
+      build = ":TSUpdate",
+      -- Move the setup call here, where it is guaranteed to run after install
+      config = function()
+         require('nvim-treesitter.configs').setup {
+           ensure_installed = { "rust", "markdown", "markdown_inline" },
+           highlight = { enable = true },
+         }
+      end
+   },
   -- Gruvbox color scheme
   { 'morhetz/gruvbox' },
 
@@ -110,7 +130,27 @@ require('lazy').setup({
       }
     end,
   },
-
+  -- render-markdown.nvim
+  {
+    'MeanderingProgrammer/render-markdown.nvim',
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
+    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+    ---@module 'render-markdown'
+    ---@type render.md.UserConfig
+    opts = {},
+  },
+  -- rust
+  {
+    "mrcjkb/rustaceanvim",
+    version = "^6", -- Use the latest compatible release
+    lazy = false,  -- Load immediately
+  },
+  -- lspconfig
+  {
+    "neovim/nvim-lspconfig",
+    lazy = false,
+  }
 })
 
 -- Set Catppuccin color scheme
@@ -120,8 +160,10 @@ vim.cmd('colorscheme catppuccin')
 vim.cmd('autocmd! User GoyoEnter Limelight')
 vim.cmd('autocmd! User GoyoLeave Limelight!')
 
--- Arrows
-vim.api.nvim_set_keymap('i', '<C-.>', ' -----> ', { noremap = true, silent = true })
+vim.cmd [[
+  autocmd BufWritePre *.rs lua vim.lsp.buf.format()
+]]
+
 
 -- Telescope Key bindings
 vim.api.nvim_set_keymap('n', '<leader>ff', '<cmd>Telescope find_files<cr>', { noremap = true, silent = true })
@@ -234,4 +276,5 @@ vim.api.nvim_create_user_command('SaveDated', save_file_with_dated_name, {
     bar = true, -- Allows chaining other commands
     desc = 'Save the current buffer with a given name and date suffix (e.g., :SaveDatedNew MyDoc -> MyDoc_YYYYMMdd.md)',
 })
+
 
