@@ -291,3 +291,5 @@ vim.api.nvim_create_user_command('SaveDated', save_file_with_dated_name, {
 -- Oil
 require("oil").setup()
 
+-- arrow
+require("arrow")
