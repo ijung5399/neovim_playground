@@ -293,3 +293,5 @@ require("oil").setup()
 
 -- arrow
 require("arrow")
+-- box
+require("box")
